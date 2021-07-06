@@ -30,7 +30,7 @@ JSON_DATA=$(jq -n -c \
 
 echo $JSON_DATA
 
-response_code=$(curl --show-error --silent --location --request POST "${DLMC_CI_ENDPOINT}/migration/run" --write-out "%{http_code}" \
+response_code=$(curl --insecure --show-error --silent --location --request POST "${DLMC_CI_ENDPOINT}/migration/run" --write-out "%{http_code}" \
 --header "Verification-Token: ${DLMC_VERIFICATION_TOKEN}" \
 --header 'Content-Type: application/json' \
 --output response.json \
